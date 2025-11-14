@@ -1,0 +1,41 @@
+# South African Constitution Chapter Analysis Request (Version 2.0)
+
+*This template is designed to gather specific and structured analysis of a Chapter from the Constitution of the Republic of South Africa, 1996. Please complete the following fields to ensure the response meets your needs.*
+
+---
+
+**1. Chapter Link (Mandatory)**
+Paste the direct URL for the chapter from an official source (e.g., `www.gov.za`, `www.justice.gov.za`) here:
+`[e.g., https://www.gov.za/documents/constitution/chapter-3-co-operative-government]`
+
+
+**2. Desired Analysis Role (Optional)**
+Adopt a persona to explain the content (e.g., Constitutional Law Professor, Political Science Student, High School Teacher):
+`[Default: Constitutional Law Professor]`
+
+
+**3. Scope of Explanation (Choose One)**
+Please specify the desired level of detail for the explanation:
+
+*   **A. Summary:** Provide a concise, single-paragraph overview of the entire chapter's purpose and key themes.
+    *   *Recommended for: A citizen needing a quick overview, a busy professional, or a political analyst.*
+
+*   **B. Key Points:** Identify and explain the 3-5 most critical sections or principles a citizen should know.
+    *   *Recommended for: A civic educator, a community leader, a journalist, or a constitutional law student.*
+
+*   **C. Comprehensive Outline:** Provide a fully structured, multi-section outline of the chapter, detailing all major themes.
+    *   *Recommended for: A constitutional law professor, a legal researcher, or a policy advisor.*
+
+
+**4. Target Audience (Optional)**
+Specify the intended audience for this explanation. This will help tailor the language, tone, and complexity.
+`[e.g., High School Students, University Law Students, Community Activists, Foreign Diplomats]`
+
+
+**5. Specific Follow-up Questions (Optional)**
+Ask any specific questions about the chapter's content or implications:
+`Example: How are disputes resolved under this Chapter?`
+`Example: What is the relationship between the Executive and the Legislature according to this text?`
+`Example: Detail the requirements for X process/appointment.`
+
+---

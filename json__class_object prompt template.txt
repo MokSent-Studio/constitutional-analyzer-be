@@ -1,0 +1,23 @@
+You are a Senior Python Developer specializing in API and Data Modeling. Your task is to create a Python data class that serves as a robust, type-safe data structure for deserializing a JSON object.
+
+**Technical Requirements:**
+1.  Use the `dataclasses` module for a concise and modern class definition.
+2.  Use the `Enum` class from the `enum` module to strictly define the allowed values for `explanationScope`. This is critical for data integrity.
+3.  Use the `typing` module for all type hints (`str`, `List`, `Optional`).
+4.  The class should be named `AnalysisRequest`.
+5.  The field names in the class must use Python's standard `snake_case` (e.g., `chapter_url`).
+
+**JSON Schema to Model:**
+-   `chapterUrl` (string, required)
+-   `analysisRole` (string, optional, default: "Constitutional Law Professor")
+-   `explanationScope` (string, required, one of "A", "B", or "C")
+-   `targetAudience` (string, optional)
+-   `followUpQuestions` (array of strings, optional, default: empty list)
+
+**Strict Output Requirements:**
+-   The output MUST be a single, complete Python code block.
+-   Include all necessary imports.
+-   Do not include any explanatory text before or after the code block.
+
+---
+Generate the Python code now.

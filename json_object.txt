@@ -1,0 +1,10 @@
+{
+  "chapterUrl": "https://www.gov.za/documents/constitution/chapter-9-state-institutions-supporting-constitutional-democracy",
+  "analysisRole": "Constitutional Law Professor",
+  "explanationScope": "B",
+  "targetAudience": "Journalist",
+  "followUpQuestions": [
+    "What is the primary mandate of the Public Protector?",
+    "How is the independence of these institutions guaranteed?"
+  ]
+}
