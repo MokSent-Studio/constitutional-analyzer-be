@@ -1,0 +1,71 @@
+[
+  {
+    "eval_id": "chapter2_summary",
+    "request": {
+      "source_url": "https://www.gov.za/documents/constitution/chapter-2-bill-rights",
+      "persona_and_audience": {
+        "role": "Civic Educator",
+        "audience": "High School Students"
+      },
+      "user_request": {
+        "scope": "A",
+        "specific_questions": []
+      }
+    },
+    "ideal_output": {
+      "fact_rubric": [
+        "MUST state that this chapter is the Bill of Rights.",
+        "MUST mention it is a cornerstone of democracy in South Africa.",
+        "MUST list at least two examples of rights (e.g., equality, dignity, freedom of expression).",
+        "MUST mention that the rights can be limited under certain circumstances."
+      ],
+      "format_rubric": [
+        "The response should be a single, coherent paragraph.",
+        "The tone must be educational and accessible for high school students."
+      ]
+    }
+  },
+  {
+    "eval_id": "chapter9_key_points",
+    "request": {
+      "source_url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-9-state-institutions-supporting",
+      "persona_and_audience": {
+        "role": "Journalist",
+        "audience": "the general public"
+      },
+      "user_request": {
+        "scope": "B",
+        "specific_questions": [
+          "What is the main job of the Public Protector?"
+        ]
+      }
+    },
+    "ideal_output": {
+      "fact_rubric": [
+        "MUST identify that Chapter 9 establishes independent institutions.",
+        "MUST name the Public Protector and its function (investigating state misconduct).",
+        "MUST name the Human Rights Commission and its function (promoting/protecting rights).",
+        "MUST name the Electoral Commission and its function (managing elections)."
+      ],
+      "format_rubric": [
+        "The response should use a list format or clear separation for each institution.",
+        "The tone should be informative and neutral, suitable for a journalist."
+      ],
+      "answered_questions_rubric": [
+        {
+          "question": "What is the main job of the Public Protector?",
+          "ideal_answer_facts": [
+            "MUST state it investigates conduct in state affairs or public administration.",
+            "MUST mention the conduct is alleged to be improper."
+          ]
+        }
+      ]
+    },
+    "follow_up_evals": [
+      {
+        "question": "How are members of the Human Rights Commission appointed?",
+        "ideal_answer": "According to the text, members of the South African Human Rights Commission are appointed by the President on the recommendation of the National Assembly."
+      }
+    ]
+  }
+]
