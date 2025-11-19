@@ -2,6 +2,7 @@ import os
 import google.generativeai as genai
 from google.generativeai.types import generation_types
 from dotenv import load_dotenv
+import json
 
 # Import our Pydantic models and our scraper function
 from app.models.schemas import AnalysisRequest, FollowUpRequest
@@ -159,17 +160,22 @@ async def generate_initial_analysis(request: AnalysisRequest) -> str:
     
     # 3. Call the AI model (using the powerful "Pro" model for the heavy lift)
     print("Prompt constructed. Calling Gemini 2.5 Pro...")
+
+    json_generation_config = genai.GenerationConfig(response_mime_type="application/json")
+
     model = genai.GenerativeModel('models/gemini-2.5-pro')
     
     try:
-        response = await model.generate_content_async(prompt)
+        response = await model.generate_content_async(prompt, generation_config=json_generation_config)
         
         if not response.parts:
             block_reason = response.prompt_feedback.block_reason.name if response.prompt_feedback else "Unknown"
             raise ValueError(f"Response was blocked for safety reasons: {block_reason}")
         
+        parsed_response = json.loads(response.text)
+        
         print("--- Initial analysis successful ---")
-        return response.text
+        return parsed_response
     except Exception as e:
         print(f"ERROR: An exception occurred during the Gemini API call: {e}")
         raise RuntimeError("Failed to get a valid response from the AI service.")
@@ -183,6 +189,8 @@ async def generate_follow_up_answer(request: FollowUpRequest) -> str:
     # 1. Re-scrape the original URL to get the full source of truth
     full_document_text = await fetch_and_parse_url(str(request.original_url))
     
+    json_generation_config = genai.GenerationConfig(response_mime_type="application/json")
+
     # 2. Construct the dual-context prompt
     prompt = _construct_follow_up_prompt(request, full_document_text)
 
@@ -191,14 +199,16 @@ async def generate_follow_up_answer(request: FollowUpRequest) -> str:
     model = genai.GenerativeModel('models/gemini-2.0-flash')
 
     try:
-        response = await model.generate_content_async(prompt)
+        response = await model.generate_content_async(prompt, generation_config=json_generation_config)
 
         if not response.parts:
             block_reason = response.prompt_feedback.block_reason.name if response.prompt_feedback else "Unknown"
             raise ValueError(f"Response was blocked for safety reasons: {block_reason}")
+        
+        parsed_response = json.loads(response.text)
             
         print("--- Follow-up answer successful ---")
-        return response.text
+        return parsed_response
     except Exception as e:
         print(f"ERROR: An exception occurred during the Gemini API call: {e}")
         raise RuntimeError("Failed to get a valid response from the AI service for the follow-up.")

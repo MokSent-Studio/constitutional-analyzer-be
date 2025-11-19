@@ -26,7 +26,7 @@ CHAPTERS_DATA = [
     {
         "id": 3,
         "name": "Chapter 3: Co-operative Government",
-        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996/chapter-3-co-operative-government"
+        "url": "https://www.gov.za/documents/constitution/chapter-3-co-operative-government"
     }
 ]
 
@@ -44,18 +44,8 @@ async def analyze_chapter(request: AnalysisRequest):
     and returns a structured analysis.
     """
     try:
-        # Call the appropriate service function
-        raw_json_response = await ai_service.generate_initial_analysis(request)
-
         # Parse the raw string response from the service
-        parsed_response = parsers.extract_json_from_string(raw_json_response)
-
-        # If parsing fails, raise a 500 server error
-        if parsed_response is None:
-            raise HTTPException(
-                status_code=500,
-                detail="Internal Server Error: The AI service returned a malformed response."
-            )
+        parsed_response = await ai_service.generate_initial_analysis(request)
 
         # Return the parsed dictionary on success
         return parsed_response
@@ -75,11 +65,10 @@ async def follow_up_question(request: FollowUpRequest):
     and returns a concise answer.
     """
     try:
-        # Call the appropriate service function
-        raw_json_response = await ai_service.generate_follow_up_answer(request)
 
         # Parse the raw string response from the service
-        parsed_response = parsers.extract_json_from_string(raw_json_response)
+        response_data = await ai_service.generate_follow_up_answer(request)
+        return response_data
 
         # If parsing fails, raise a 500 server error
         if parsed_response is None:
