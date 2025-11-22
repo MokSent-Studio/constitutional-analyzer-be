@@ -9,3 +9,11 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+# IDE / Editor
+.vscode/
+.idea/
+
+
+# Test artifacts
+.pytest_cache/

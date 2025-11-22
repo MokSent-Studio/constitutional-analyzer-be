@@ -16,18 +16,75 @@ CHAPTERS_DATA = [
     {
         "id": 1,
         "name": "Chapter 1: Founding Provisions",
-        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996/chapter-1-founding-provisions"
+        "url": "https://www.gov.za/documents/constitution/chapter-1-founding-provisions"
     },
     {
         "id": 2,
         "name": "Chapter 2: Bill of Rights",
-        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996/chapter-2-bill-rights"
+        "url": "https://www.gov.za/documents/constitution/chapter-2-bill-rights"
     },
     {
         "id": 3,
         "name": "Chapter 3: Co-operative Government",
         "url": "https://www.gov.za/documents/constitution/chapter-3-co-operative-government"
-    }
+    },
+    {
+        "id": 4,
+        "name": "Chapter 4: Parliament",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-4-parliament"
+    },
+    {
+        "id": 5,
+        "name": "Chapter 5: The President & National Executive",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-5-president-and-national-executive"
+    },
+    {
+        "id": 6,
+        "name": "Chapter 6: Provinces",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-6-provinces"
+    },
+    {
+        "id": 7,
+        "name": "Chapter 7: Local Government",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-7-local-government"
+    },
+    {
+        "id": 8,
+        "name": "Chapter 8: Courts & Administration of Justice",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-8-courts-and-administration-justice"
+    },
+    {
+        "id": 9,
+        "name": "Chapter 9: State institutions supporting constitutional democracy",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-9-state-institutions-supporting"
+    },
+    {
+        "id": 10,
+        "name": "Chapter 10: Public Administration",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-10-public-administration"
+    },
+    {
+        "id": 11,
+        "name": "Chapter 11: Security Services",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-11-security-services"
+    },
+    {
+        "id": 12,
+        "name": "Chapter 12: Traditional Leaders",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-12-traditional-leaders"
+    },
+    {
+        "id": 13,
+        "name": "Chapter 13: Finance",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-13-finance"
+    },
+    {
+        "id": 14,
+        "name": "Chapter 14: General Provisions",
+        "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-14-general-provisions"
+    },
+
+
 ]
 
 @router.get("/chapters", response_model=List[Chapter], tags=["Chapters"])
