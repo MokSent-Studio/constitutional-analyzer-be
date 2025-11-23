@@ -3,8 +3,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import endpoints
-import os
-from typing import Dict, Any
 
 # Initialize the FastAPI application
 app = FastAPI(
@@ -36,15 +34,3 @@ async def read_root():
     A simple root endpoint to confirm the API is running.
     """
     return {"message": "Welcome to the Constitution Analyzer API"}
-
-@app.get("/debug/env", tags=["Debug"])
-async def debug_env() -> Dict[str, Any]:
-    """
-    Temporary endpoint to verify environment variables.
-    """
-    api_key = os.environ.get("GOOGLE_API_KEY")
-    return {
-        "has_api_key": api_key is not None,
-        "key_length": len(api_key) if api_key else 0,
-        "key_prefix": api_key[:4] + "..." if api_key else "None"
-    }
