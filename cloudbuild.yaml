@@ -1,0 +1,40 @@
+steps:
+  # Step 1: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/${_IMAGE_NAME}:latest'
+      - '.'
+    id: 'Build Image'
+
+  # Step 2: Push the image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/${_IMAGE_NAME}:latest'
+    id: 'Push Image'
+
+  # Step 3: Deploy the new image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE_NAME}' # The name of your Cloud Run service
+      - '--image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/${_IMAGE_NAME}:latest'
+      - '--region=${_REGION}'
+      - '--platform=managed'
+      - '--quiet' # Suppress interactive prompts
+    id: 'Deploy to Cloud Run'
+
+# Tell Cloud Build which images were produced
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/${_IMAGE_NAME}:latest'
+
+# Define the substitutions we'll use in the trigger
+substitutions:
+  _SERVICE_NAME: 'constitution-analyzer-api'
+  _REGION: 'europe-west1'
+  _REPO_NAME: 'constitution-analyzer-repo'
+  _IMAGE_NAME: 'api-service'
