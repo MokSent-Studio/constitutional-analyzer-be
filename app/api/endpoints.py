@@ -1,7 +1,7 @@
 # app/api/endpoints.py
 
 from fastapi import APIRouter, HTTPException
-from typing import List
+from typing import List, Dict, Any
 
 # Import models, services, and utilities
 from app.models.schemas import AnalysisRequest, FollowUpRequest, Chapter
@@ -11,7 +11,7 @@ from app.services import ai_service
 router = APIRouter()
 
 # --- REVISION 1: Updated URLs to point to HTML versions ---
-CHAPTERS_DATA = [
+CHAPTERS_DATA: List[Dict[str, Any]]= [
     {
         "id": 1,
         "name": "Chapter 1: Founding Provisions",
@@ -82,9 +82,8 @@ CHAPTERS_DATA = [
         "name": "Chapter 14: General Provisions",
         "url": "https://www.gov.za/documents/constitution-republic-south-africa-1996-chapter-14-general-provisions"
     },
-
-
 ]
+
 
 @router.get("/chapters", response_model=List[Chapter], tags=["Chapters"])
 async def get_chapters():
