@@ -126,16 +126,16 @@ async def follow_up_question(request: FollowUpRequest):
         # Parse the raw string response from the service
         response_data = await ai_service.generate_follow_up_answer(request)
         return response_data
-
-        # If parsing fails, raise a 500 server error
-        if parsed_response is None:
-            raise HTTPException(
-                status_code=500,
-                detail="Internal Server Error: The AI service returned a malformed response."
-            )
+    
+        # # If parsing fails, raise a 500 server error
+        # if parsed_response is None:
+        #     raise HTTPException(
+        #         status_code=500,
+        #         detail="Internal Server Error: The AI service returned a malformed response."
+        #     )
         
-        # Return the parsed dictionary on success
-        return parsed_response
+        # # Return the parsed dictionary on success
+        # return parsed_response
 
     # --- REVISION 2: Swapped status codes for ValueError and RuntimeError ---
     except ValueError as e:
