@@ -32,6 +32,9 @@ steps:
 images:
   - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/${_IMAGE_NAME}:latest'
 
+options:
+  logging: CLOUD_LOGGING_ONLY
+  
 # Define the substitutions we'll use in the trigger
 substitutions:
   _SERVICE_NAME: 'constitution-analyzer-api'
